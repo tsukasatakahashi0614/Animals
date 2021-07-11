@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mt-5">
+      <%= render "form" %>
+    </div>
+    <div class="col-md-4 mt-5">
+      <tbody>
+        <% @posts.each do |post| %>
+        <td>
+          <%= link_to user_path(post.user) do %>
+          <%= attachment_image_tag(post.user, :profile_image, :fill, 20, 20, fallback: "no_image.jpg") %>
+          <% end %>
+        </td>
+        <td>
+          <%= post.user.name %>
+        </td>
+        <div>
+          <%= post.body %>
+        </div>
+        <% end %>
+      </tbody>
+    </div>
+  </div>
+</div>

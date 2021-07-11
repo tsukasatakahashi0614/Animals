@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   	 patch "out"
   	end
   end
+  
+  resources :posts, only: [:index, :show, :new, :destroy, :create]
+  
 end
