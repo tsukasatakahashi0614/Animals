@@ -4,6 +4,16 @@
       <div><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></div>
       <div><%= @user.name %></div>
       <div><%= @user.introduction %></div>
+      <% if @user == current_user %>
+      <div><%= link_to "プロフィール編集", edit_user_path, class: "btn btn-success" %></div>
+      <% end %>
+      <% @posts.each do |post| %>
+      <table class="table">
+        <thead>
+          <td><%= post.body %></td>
+        </thead>
+      </table>
+      <% end %>
     </div>
   </div>
 </div>

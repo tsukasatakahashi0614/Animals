@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= attachment_image_tag(@post.user, :profile_image, size: "48x48", fallback: "no_image.jpg") %>
+      <span><%= @post.user.name %></span>
+      <%= attachment_image_tag @post, :image, format: "jpeg", size: "566x331" %>
+      <%= @post.body %>
+      <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
+        <%= f.text_area :comment, rows:"5", placeholder: "コメント" %>
+        <%= f.submit "送信" %>
+      <% end %>
+      <% @post.post_comments.each do |post_comment| %>
+      <div>
+        <td><%= post_comment.user.name %></td>
+        <td><%= post_comment.comment %></td>
+        <% if post_comment.user == current_user %>
+        <td><%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %></td>
+      </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
