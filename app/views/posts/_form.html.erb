@@ -3,6 +3,9 @@
   <%= f.attachment_field :image %>
 </div>
 <div>
+  <%= f.collection_select :genre_id, @genres, :id, :genre_name, prompt: "選択してください", class:"col-3" %>
+</div>
+<div>
   <%= f.text_area :body %>
 </div>
 <div>

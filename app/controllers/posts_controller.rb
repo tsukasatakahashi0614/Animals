@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   
   def index 
     @post = Post.new
-    @posts = Post.all
+    @genres = Genre.all
+    @posts = Post.all.order(created_at: :desc)
   end
   
   def show
@@ -26,7 +27,7 @@ class PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:image,:body)
+    params.require(:post).permit(:image,:body,:genre_id)
   end
   
 end

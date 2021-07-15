@@ -9,6 +9,19 @@
         <%= f.text_area :comment, rows:"5", placeholder: "コメント" %>
         <%= f.submit "送信" %>
       <% end %>
+      <% if @post.favorited_by?(current_user) %>
+      <div>
+        <%= link_to post_favorites_path(@post), method: :delete do %>
+          ♥<%= @post.favorites.count %> いいね
+        <% end %>
+      </div>
+        <% else %>
+      <div>
+        <%= link_to post_favorites_path(@post), method: :post do %>
+          ♡<%= @post.favorites.count %> いいね
+        <% end %>
+      </div>
+      <% end %>
       <% @post.post_comments.each do |post_comment| %>
       <div>
         <td><%= post_comment.user.name %></td>

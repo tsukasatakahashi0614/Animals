@@ -22,6 +22,19 @@
             <%= post.body %>
           <% end %>
         </div>
+        <% if post.favorited_by?(current_user) %>
+          <div>
+            <%= link_to post_favorites_path(post), method: :delete do %>
+              ♥<%= post.favorites.count %> いいね
+            <% end %>
+          </div>
+          <% else %>
+          <div>
+            <%= link_to post_favorites_path(post), method: :post do %>
+              ♡<%= post.favorites.count %> いいね
+            <% end %>
+          </div>
+          <% end %>
         <% end %>
       </tbody>
     </div>
