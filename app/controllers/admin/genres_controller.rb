@@ -1,5 +1,5 @@
-class Admins::GenresController < ApplicationController
-    before_action :authenticate_admin!
+class Admin::GenresController < ApplicationController
+  before_action :authenticate_admin!
 
 
   def index
@@ -30,10 +30,15 @@ class Admins::GenresController < ApplicationController
     end
   end
 
+  def destroy
+    @genre = Genre.find_by(id: params[:id]).destroy
+    redirect_to admin_genres_path
+  end
+
   private
 
   def params_genre
     params.require(:genre).permit(:genre_name)
   end
-  
+
 end

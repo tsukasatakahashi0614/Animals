@@ -25,8 +25,8 @@ Rails.application.routes.draw do
     resources :post_comments, only: [:create, :destroy]
   end
 
-  namespace :admins do
-    resources :genres, only: [:index, :create, :edit, :update]
+  namespace :admin do
+    resources :genres, only: [:index, :create, :edit, :update, :destroy]
   end
 
 end
