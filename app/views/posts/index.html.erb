@@ -3,7 +3,7 @@
     <div class="col-md-3 mt-5">
       <%= render "form" %>
     </div>
-    <div class="col-md-4 mt-5">
+    <div class="col-md-6 mt-5">
       <tbody>
         <% @posts.each do |post| %>
         <td>
@@ -37,6 +37,9 @@
           <% end %>
         <% end %>
       </tbody>
+    </div>
+    <div class="col-md-3 mt-5">
+      <%= render "search/form" %>
     </div>
   </div>
 </div>

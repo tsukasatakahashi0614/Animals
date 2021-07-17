@@ -1,0 +1,12 @@
+<div>
+  <%= form_with url: search_search_path, method: :get, local: true do |f| %>
+  <%= f.text_field "search[value]" %>
+  <%= f.select 'search[how]', options_for_select({ "部分一致" => "partical"}) %>
+  <%= f.submit "検索" %>
+  <% end %>
+</div>
+<div>
+  <% @genres.each do |genre| %>
+  <%= link_to genre.genre_name, search_search_path("search[value]": genre.id, "search[how]": "match") %>
+  <% end %>
+</div>

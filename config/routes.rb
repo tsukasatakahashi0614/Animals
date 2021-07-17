@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'search/search'
   devise_for :admins, path: 'admin', controllers: {
     sessions:      'admins/sessions',
     passwords:     'admins/passwords'
