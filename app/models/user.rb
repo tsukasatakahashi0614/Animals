@@ -7,7 +7,9 @@ class User < ApplicationRecord
   attachment :profile_image
   
   has_many :posts
+  #コメント機能
   has_many :post_comments
+  #いいね機能
   has_many :favorites
   #フォロワー機能
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
@@ -18,6 +20,8 @@ class User < ApplicationRecord
   # 【class_name: "Relationship"】は省略可能
   has_many :followings, through: :relationships, source: :followed
   # 与フォロー関係を通じて参照→follower_idをフォローしている人gh: :relationships, source: :followed
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
   
   def follow(user_id)
     relationships.create(followed_id: user_id)

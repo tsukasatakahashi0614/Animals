@@ -1,10 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3 mt-5">
-      <%= render "form" %>
+    <div class="col-md-2 offset-1 mt-5">
+      <%= render "layouts/links" %>
     </div>
-    <div class="col-md-6 mt-5">
+    <div class="col-md-6 mt-5" style="width:300px;height:800px;overflow:auto;">
       <tbody>
+        <div>
         <% @posts.each do |post| %>
         <td>
           <%= link_to user_path(post.user) do %>
@@ -15,27 +16,28 @@
           <%= post.user.name %>
         </td>
         <div>
-          <%= attachment_image_tag post, :image, format: "jpeg", size: "566x331" %>
-        </div>
-        <div>
-          <%= link_to post_path(post) do %>
-            <%= post.body %>
-          <% end %>
+          <%= attachment_image_tag post, :image, format: "jpeg", size: "512x288" %>
         </div>
         <% if post.favorited_by?(current_user) %>
           <div>
             <%= link_to post_favorites_path(post), method: :delete do %>
-              ♥<%= post.favorites.count %> いいね
+              ♥<%= post.favorites.count %>
             <% end %>
           </div>
           <% else %>
           <div>
             <%= link_to post_favorites_path(post), method: :post do %>
-              ♡<%= post.favorites.count %> いいね
+              ♡<%= post.favorites.count %>
             <% end %>
           </div>
           <% end %>
+          <div>
+            <%= link_to post_path(post) do %>
+            <%= post.body %>
+            <% end %>
+          </div>
         <% end %>
+        </div>
       </tbody>
     </div>
     <div class="col-md-3 mt-5">

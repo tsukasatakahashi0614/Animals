@@ -1,0 +1,11 @@
+<strong>
+  <%= link_to "ホーム", posts_path, class: "text-dark" %>
+</strong>
+<br>
+<strong>
+  <%= link_to "プロフィール", user_path(current_user.id), class: "text-dark" %>
+</strong>
+<br>
+<strong>
+  <%= link_to "新規投稿", new_post_path, class: "text-dark" %>
+</strong>

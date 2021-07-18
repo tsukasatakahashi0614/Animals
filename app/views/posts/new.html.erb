@@ -1,0 +1,14 @@
+<%= form_with model: @post, local:true do |f| %>
+<div>
+  <%= f.attachment_field :image %>
+</div>
+<div>
+  <%= f.collection_select :genre_id, @genres, :id, :genre_name, prompt: "選択してください", class:"col-3" %>
+</div>
+<div>
+  <%= f.text_area :body %>
+</div>
+<div>
+  <%= f.submit class: "btn btn-success" %>
+</div>
+<% end %>

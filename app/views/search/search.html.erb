@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3 mt-5">
+    <div class="col-md-2 offset-1 mt-5">
+      <%= render "layouts/links" %>
     </div>
-    <div class="col-md-6 mt-5">
+    <div class="col-md-6 mt-5" style="width:300px;height:800px;overflow:auto;">
       <tbody>
         <% @datas.each do |data| %>
         <td>
@@ -14,7 +15,7 @@
           <%= data.user.name %>
         </td>
         <div>
-          <%= attachment_image_tag data, :image, format: "jpeg", size: "566x331" %>
+          <%= attachment_image_tag data, :image, format: "jpeg", size: "512x288" %>
         </div>
         <div>
           <%= link_to post_path(data) do %>

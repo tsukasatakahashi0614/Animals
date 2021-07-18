@@ -25,6 +25,9 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
   end
+  
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create, :show, ]
 
   namespace :admin do
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
