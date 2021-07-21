@@ -4,33 +4,21 @@
       <%= attachment_image_tag(@post.user, :profile_image, size: "48x48", fallback: "no_image.jpg") %>
       <span><%= @post.user.name %></span>
       <%= attachment_image_tag @post, :image, format: "jpeg", size: "566x331" %>
-      <%= @post.body %>
-      <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
-        <%= f.text_area :comment, rows:"5", placeholder: "コメント" %>
-        <%= f.submit "送信" %>
-      <% end %>
-      <% if @post.favorited_by?(current_user) %>
       <div>
-        <%= link_to post_favorites_path(@post), method: :delete do %>
-          ♥<%= @post.favorites.count %> いいね
-        <% end %>
+        <div id="post_<%= @post.id %>">
+          <%= render "favorites/favorite-btn", post: @post %>
+        </div>
+        <%= @post.body %>
+        <div class="post_comments">
+          <%= render "post_comments/index", post: @post %>
+        </div>
+        <div class="comment-form">
+          <%= form_with model:[@post, @post_comment] do |f| %>
+            <%= f.text_area :comment, placeholder: "コメント" %>
+            <%= f.submit "送信" %>
+          <% end %>
+        </div>
       </div>
-        <% else %>
-      <div>
-        <%= link_to post_favorites_path(@post), method: :post do %>
-          ♡<%= @post.favorites.count %> いいね
-        <% end %>
-      </div>
-      <% end %>
-      <% @post.post_comments.each do |post_comment| %>
-      <div>
-        <td><%= post_comment.user.name %></td>
-        <td><%= post_comment.comment %></td>
-        <% if post_comment.user == current_user %>
-        <td><%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %></td>
-      </div>
-        <% end %>
-      <% end %>
     </div>
   </div>
 </div>

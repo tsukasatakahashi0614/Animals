@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-center mt-5">
+    <div class="col-md-2 offset-1 mt-5">
+      <%= render "layouts/links" %>
+    </div>
+    <div class="col-md-6 mt-5" style="width:300px;height:800px;overflow:auto;">
       <div><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></div>
       <div><%= @user.name %></div>
       <div><%= @user.introduction %></div>
@@ -11,7 +14,7 @@
       <% else %>
       <div>
         <% if @isRoom == true %>
-          <%= link_to "ダイレクトメッセージ", room_path(@roomId) %>
+          <%= link_to "ダイレクトメッセージ", room_path(@roomId), class: "btn btn-success" %>
         <% else %>
           <%= form_for @room do |f| %>
             <%= fields_for @entry do |e| %>
@@ -29,13 +32,8 @@
       <div><%= link_to "フォロー", user_relationships_path(@user.id), method: :post %></div>
       <% end %>
       <% end %>
-      <% @posts.each do |post| %>
-      <table class="table">
-        <thead>
-          <td><%= post.body %></td>
-        </thead>
-      </table>
-      <% end %>
+      <div><%= render "posts/index", posts: @posts %></
+      div>
     </div>
   </div>
 </div>

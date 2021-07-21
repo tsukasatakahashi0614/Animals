@@ -1,0 +1,3 @@
+console.log("1111");
+console.log("#post_<%= @post.id %>");
+$("#post_<%= @post.id %>").html("<%= j(render "favorites/favorite-btn", post: @post) %>");
