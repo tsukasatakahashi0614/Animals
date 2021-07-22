@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  
+
   def show
+    @genres = Genre.all
     @user = User.find(params[:id])
     @posts = @user.posts
     @currentUserEntry = Entry.where(user_id: current_user.id)
@@ -23,11 +24,11 @@ class UsersController < ApplicationController
       end
     end
   end
-  
+
   def edit
     @user = User.find(params[:id])
   end
-  
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -36,12 +37,12 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
-  
+
   private
 
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
-  
+
 end

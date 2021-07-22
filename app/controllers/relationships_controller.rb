@@ -11,11 +11,13 @@ class RelationshipsController < ApplicationController
   end
 
   def followings
+    @genres = Genre.all
     user = User.find(params[:user_id])
     @users = user.followings
   end
 
   def followers
+    @genres = Genre.all
     user = User.find(params[:user_id])
     @users = user.followers
   end
