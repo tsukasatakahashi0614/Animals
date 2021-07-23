@@ -14,11 +14,11 @@ class SearchController < ApplicationController
   private
 
   def partical(value)
-    Post.where("body LIKE ?", "%#{value}%")
+    Post.where("body LIKE ?", "%#{value}%").order(created_at: :desc)
   end
 
   def match(value)
-    Post.where(body: value).or(Post.where(genre_id: value))
+    Post.where(body: value).or(Post.where(genre_id: value)).order(created_at: :desc)
   end
 
   def search_for(how, value)

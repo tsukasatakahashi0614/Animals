@@ -1,11 +1,7 @@
-<strong>
-  <%= link_to "ホーム", posts_path, class: "text-dark" %>
-</strong>
-<br>
-<strong>
-  <%= link_to "プロフィール", user_path(current_user.id), class: "text-dark" %>
-</strong>
-<br>
-<strong>
-  <%= link_to "新規投稿", new_post_path, class: "text-dark" %>
-</strong>
+<div class="card">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= link_to "ホーム", posts_path, class: "text-dark text-decoration-none stretched-link" %></li>
+    <li class="list-group-item"><%= link_to "プロフィール", user_path(current_user.id), class: "text-dark text-decoration-none stretched-link" %></li>
+    <li class="list-group-item"><%= link_to "新規投稿", new_post_path, class: "text-dark text-decoration-none stretched-link" %></li>
+  </ul>
+</div>

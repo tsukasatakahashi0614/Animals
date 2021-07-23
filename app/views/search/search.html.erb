@@ -4,7 +4,9 @@
       <%= render "layouts/links" %>
     </div>
     <div class="col-md-6 mt-5" style="width:300px;height:800px;overflow:auto;">
-      <%= render "posts/index", posts: @post %>
+      <div>
+        <%= render "posts/index", posts: @post %>
+      </div>
     </div>
     <div class="col-md-3 mt-5">
       <%= render "search/form" %>

@@ -17,10 +17,14 @@ class PostsController < ApplicationController
   end
 
   def create
+    @genres = Genre.all
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    redirect_to posts_path
+    if @post.save
+      redirect_to posts_path
+    else
+      render :new
+    end
   end
 
   def destroy
