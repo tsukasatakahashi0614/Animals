@@ -1,0 +1,29 @@
+<div class="container">
+  <thead>
+    <h2 class="page-header mt-4 mb-4">ジャンル一覧・追加</h2>
+    <div class="row">
+      <!--エラーメッセージ-->
+    </div>
+    <div class="row form-group">
+      <%= form_with model:[@genre],local: true do |f| %>
+        <tr>
+          <th>ジャンル名</th>
+          <th><%= f.text_field :genre_name %></th>
+          <th><%= f.submit '新規登録', class: 'btn btn-success' %></th>
+        </tr>
+        <% end %>
+    </div>
+  </thead>
+
+  <tbody>
+    <h2 class="mb-3">ジャンル</h2>
+    <table class="table table-striped">
+      <% @genres.each do |genre| %>
+      <tr>
+        <td><%= genre.genre_name %></td>
+        <td><%= link_to "削除", genre_path(genre), method: :delete %></td>
+      </tr>
+      <% end %>
+    </table>
+  </tbody>
+</div>

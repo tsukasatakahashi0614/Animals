@@ -1,5 +1,5 @@
-class Admin::GenresController < ApplicationController
-  before_action :authenticate_admin!
+class GenresController < ApplicationController
+  before_action :authenticate_user!
 
 
   def index
@@ -11,20 +11,16 @@ class Admin::GenresController < ApplicationController
     @genre = Genre.new(params_genre)
     @genres = Genre.all
     if @genre.save
-      redirect_to admin_genres_path
+      redirect_to genres_path
     else
       render :index
     end
   end
 
-  def edit
-    @genre = Genre.find(params[:id])
-  end
-
   def update
     @genre = Genre.find(params[:id])
     if @genre.update(params_genre)
-      redirect_to admin_genres_path
+      redirect_to genres_path
     else
       render :edit
     end
@@ -32,7 +28,7 @@ class Admin::GenresController < ApplicationController
 
   def destroy
     @genre = Genre.find_by(id: params[:id]).destroy
-    redirect_to admin_genres_path
+    redirect_to genres_path
   end
 
   private

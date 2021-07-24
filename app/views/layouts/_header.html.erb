@@ -5,8 +5,16 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="row mr-1">
+        <% if user_signed_in? %>
+          <div class="mb-2">こんにちは <span class="font-weight-bold text-info h5"><%= current_user.name %></span> さん</div>
+        <% else %>
+          <div class="mb-2">こんにちは <span class="font-weight-bold h5" >ゲスト</span> さん</div>
+        <% end %>
+        </div>
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
+        <% if current_user.admin == false %>
         <li class="nav-item">
           <%= link_to "ホーム", posts_path, class: "nav-link text-dark" %>
         </li>
@@ -16,20 +24,20 @@
         <li class="nav-item">
           <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
         </li>
-        <% elsif admin_signed_in? %>
+        <% end %>
+        <% end %>
+        <% if user_signed_in? %>
+        <% if current_user.admin == true %>
         <li class="nav-item">
+          <%= link_to 'ジャンル登録',genres_path,class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-dark" %>
+        </li>
+        <li>
           <%= link_to "ホーム", posts_path, class: "nav-link text-dark" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-dark" %>
-        </li>
-        <% else %>
-        <li class="nav-item">
-          <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
-        </li>
+        <% end %>
         <% end %>
         </ul>
       </div>

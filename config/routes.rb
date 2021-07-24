@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
 
   get 'search/search'
-  devise_for :admins, path: 'admin', controllers: {
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords'
-  }
-
   devise_for :users
 
 
@@ -25,12 +20,12 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
   end
-  
+
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :show, ]
 
-  namespace :admin do
-    resources :genres, only: [:index, :create, :edit, :update, :destroy]
-  end
+
+  resources :genres, only: [:index, :create, :edit, :update, :destroy]
+
 
 end

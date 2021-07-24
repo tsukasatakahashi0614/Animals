@@ -20,6 +20,7 @@ class PostsController < ApplicationController
     @genres = Genre.all
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    #byebug
     if @post.save
       redirect_to posts_path
     else
@@ -28,12 +29,15 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:image,:body,:genre_id)
+    params.require(:post).permit(:image, :body, :genre_id)
   end
 
 end

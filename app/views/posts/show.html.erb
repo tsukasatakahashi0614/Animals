@@ -18,6 +18,9 @@
             <%= f.submit "送信" %>
           <% end %>
         </div>
+        <% if @post.user == current_user || current_user.admin? %>
+          <td><%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-danger" %></td>
+        <% end %>
       </div>
     </div>
   </div>
