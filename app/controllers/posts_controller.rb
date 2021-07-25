@@ -12,15 +12,16 @@ class PostsController < ApplicationController
   end
 
   def show
+    @genres = Genre.all
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
+    @post_comments = Post.find(params[:id])
   end
 
   def create
     @genres = Genre.all
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    #byebug
     if @post.save
       redirect_to posts_path
     else
