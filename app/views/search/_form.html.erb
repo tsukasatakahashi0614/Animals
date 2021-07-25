@@ -9,12 +9,3 @@
   </div>
   <% end %>
 </div>
-  <% @genres.each do |genre| %>
-    <div class="card">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <%= link_to genre.genre_name, search_search_path("search[value]": genre.id, "search[how]": "match"), class: "text-dark text-decoration-none stretched-link" %>
-        </li>
-      </ul>
-    </div>
-  <% end %>
