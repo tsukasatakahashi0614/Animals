@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
+  
   def search
     @genres = Genre.all
     @value = params["search"]["value"]         #データを代入

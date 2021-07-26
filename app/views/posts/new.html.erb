@@ -9,14 +9,29 @@
         <div>
           <%= f.attachment_field :image %>
         </div>
-        <div>
-          <%= f.collection_select :genre_id, @genres, :id, :genre_name, prompt: "選択してください", class: "form-controlcd " %>
+
+        <img id="preview" style="width:512px; height:291px;">　<!-- 画像のプレビュー -->
+
+        <script>
+          $('#post_image').on('change', function (e) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("#preview").attr('src', e.target.result);
+            }
+            reader.readAsDataURL(e.target.files[0]);
+        });
+        </script> <!-- ここまで -->
+
+        <div class="form-select">
+          <%= f.collection_select :genre_id, @genres, :id, :genre_name, prompt: "選択してください", class: "form-select " %>
         </div>
         <div>
           <%= f.text_area :body, class: "form-control" %>
         </div>
-        <div>
-          <%= f.submit class: "btn btn-success" %>
+        <div class="d-flex flex-row-reverse">
+          <div >
+            <%= f.submit "投稿", class: "btn btn-success" %>
+          </div>
         </div>
         <% end %>
       </div>

@@ -7,7 +7,13 @@
       <%= render "users/index", users: @users %>
     <% else %>
       <div class="col-md-6 mt-5">
-        <h2>ユーザーはいません</h2>
+        <div class="d-flex justify-content-around">
+          <div><%= link_to "フォロー", user_followings_path(@user), class: "btn btn-info disabled" %></div>
+          <div><%= link_to "フォロワー", user_followers_path(@user), class: "btn btn-info" %></div>
+        </div>
+        <div class="text-center">
+          <h2>ユーザーはいません</h2>
+        </div>
       </div>
     <% end %>
     <div class="col-md-3 mt-5">

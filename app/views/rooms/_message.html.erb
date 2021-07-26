@@ -6,7 +6,7 @@
 <% if @messages.present? %>
   <% @messages.each do |m| %>
     <%= link_to user_path(@user) do %>
-    <div><%= attachment_image_tag(@user, :profile_image, size: "48x48", fallback: "no_image.jpg") %></div>
+    <div><%= attachment_image_tag(m.user, :profile_image, size: "48x48", fallback: "no_image.jpg", class: "rounded-circle") %></div>
     <% end %>
     <div class="border-bottom"><%= m.content %></div>
   <% end %>
