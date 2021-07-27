@@ -1,4 +1,4 @@
-<header class="shadow-sm">
+<header class="shadow-sm bg-red">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,7 +7,9 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <div class="row mr-1">
         <% if user_signed_in? %>
-          <div class="mb-2">こんにちは <span class="font-weight-bold text-info h5"><%= current_user.name %></span> さん</div>
+          <%= link_to posts_path, class: "text-decoration-none" do %>
+           <div class="mb-2 text-dark">こんにちは <span class="font-weight-bold text-info h5"><%= current_user.name %></span> さん</div>
+          <% end %>
         <% else %>
           <div class="mb-2">こんにちは <span class="font-weight-bold h5" >ゲスト</span> さん</div>
         <% end %>

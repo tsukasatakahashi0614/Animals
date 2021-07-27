@@ -8,5 +8,6 @@
 
 Genre.create(genre_name: "猫")
 Genre.create(genre_name: "犬")
+Genre.create(genre_name: "鳥")
 Genre.create(genre_name: "爬虫類")
 Genre.create(genre_name: "その他")

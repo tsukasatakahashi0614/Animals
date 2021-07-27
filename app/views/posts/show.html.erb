@@ -13,7 +13,7 @@
               <% end %>
             <strong><%= @post.user.name %></strong>
               <% if @post.user == current_user || current_user.admin? %>
-                <td><%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-danger" %></td>
+                <td><%= link_to "削除", post_path(@post), method: :delete,　data: { confirm: '削除しますか？' }, class: "btn btn-danger" %></td>
               <% end %>
             </div>
             <div class="text-center"><%= attachment_image_tag(@post, :image, format: "jpeg", size: "519x291", class: "rounded") %></div>

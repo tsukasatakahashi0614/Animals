@@ -13,10 +13,11 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap";
-@import 'font-awesome-sprockets';
-@import 'font-awesome';
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css");
+ 
+  @import "bootstrap";
+  @import 'font-awesome-sprockets';
+  @import 'font-awesome';
+  @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css");
 
 .profile-img{
     border-radius: 100%;
@@ -26,3 +27,4 @@
   width: 521px;
   height: 100%;
 }
+

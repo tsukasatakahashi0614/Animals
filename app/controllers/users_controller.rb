@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @genres = Genre.all
     @user = User.find(params[:id])
   end
 

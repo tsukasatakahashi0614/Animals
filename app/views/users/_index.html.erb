@@ -6,14 +6,13 @@
     <% users.each do |user| %>
     <div class="card">
       <div class="d-flex">
-        <div class="p-2"><%= attachment_image_tag(user, :profile_image, size: "48x48", fallback: "no_image.jpg", class: "rounded-circle") %></div>
+        <%= link_to user_path(user), class: "text-decoration-none" do %>
+          <div class="p-2"><%= attachment_image_tag(user, :profile_image, size: "48x48", fallback: "no_image.jpg", class: "rounded-circle") %></div>
+        <% end %>
         <div class="w-100 d-flex flex-column">
           <span>
             <strong>
               <%= user.name %>
-              <% if @user.admin == true %>
-                <i class="bi bi-tools"></i>
-              <% end %>
             </strong>
           </span>
           <p><%= user.introduction %></p>
