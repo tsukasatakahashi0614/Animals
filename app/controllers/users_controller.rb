@@ -39,6 +39,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def favorites
+    @genres = Genre.all
+  end
+
   private
 
   def user_params

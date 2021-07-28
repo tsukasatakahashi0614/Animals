@@ -4,6 +4,8 @@ class Post < ApplicationRecord
   belongs_to :genre
   has_many :post_comments
   has_many :favorites
+  #いいね一覧を表示するための中間テーブル
+  has_many :favorited_users, through: :favorites, source: :user
   attachment :image
 
   validates :body, :image, :genre_id, presence: true
