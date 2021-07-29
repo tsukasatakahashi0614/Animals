@@ -1,7 +1,6 @@
 class GenresController < ApplicationController
   before_action :authenticate_user!
 
-
   def index
     @genre = Genre.new
     @genres = Genre.all
@@ -36,5 +35,4 @@ class GenresController < ApplicationController
   def params_genre
     params.require(:genre).permit(:genre_name)
   end
-
 end

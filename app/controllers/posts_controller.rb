@@ -41,5 +41,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:image, :body, :genre_id)
   end
-
 end

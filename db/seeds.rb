@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Genre.create(genre_name: "猫")
-Genre.create(genre_name: "犬")
-Genre.create(genre_name: "鳥")
-Genre.create(genre_name: "爬虫類")
-Genre.create(genre_name: "その他")
+Genre.create(genre_name: '猫')
+Genre.create(genre_name: '犬')
+Genre.create(genre_name: '鳥')
+Genre.create(genre_name: '爬虫類')
+Genre.create(genre_name: 'その他')
