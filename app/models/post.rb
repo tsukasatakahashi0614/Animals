@@ -8,8 +8,9 @@ class Post < ApplicationRecord
   has_many :favorited_users, through: :favorites, source: :user
   attachment :image
 
-  validates :body, :image, :genre_id, presence: true
-  
+  validates :image, :genre_id, presence: true
+  validates :body, {length: {maximum: 200}}
+
 
   #引数で渡されたユーザidがFavoritesテーブル内に存在（exists?）するかどうか
   def favorited_by?(user)

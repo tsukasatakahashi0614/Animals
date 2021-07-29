@@ -6,11 +6,11 @@ class User < ApplicationRecord
          
   attachment :profile_image
   
-  has_many :posts
+  has_many :posts, dependent: :destroy
   #コメント機能
-  has_many :post_comments
+  has_many :post_comments, dependent: :destroy
   #いいね機能
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   #フォロワー機能
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :follower
