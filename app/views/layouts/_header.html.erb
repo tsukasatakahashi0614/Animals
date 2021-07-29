@@ -18,10 +18,7 @@
         <% if user_signed_in? %>
         <% if current_user.admin == false %>
         <li class="nav-item">
-          <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-light btn btn-secondary' %>
         </li>
         <% end %>
         <% end %>
@@ -31,7 +28,7 @@
           <%= link_to 'ジャンル登録',genres_path,class: 'nav-link text-dark' %>
         </li>
         <li class="nav-item">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-dark" %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-dark btn btn-secondary" %>
         </li>
         <% end %>
         <% end %>
