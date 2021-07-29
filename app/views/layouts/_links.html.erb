@@ -4,5 +4,6 @@
     <li class="list-group-item bi bi-person"><%= link_to "プロフィール", user_path(current_user.id), class: "text-dark text-decoration-none stretched-link" %></li>
     <li class="list-group-item bi bi-stickies"><%= link_to "新規投稿", new_post_path, class: "text-dark text-decoration-none stretched-link" %></li>
     <li class="list-group-item bi bi-suit-heart"><%= link_to "いいね一覧", user_favorites_path(current_user), class: "text-dark text-decoration-none stretched-link" %></li>
+    <li class="list-group-item bi bi-bell"><%= link_to "通知", user_notifications_path(current_user), class: "text-dark text-decoration-none stretched-link" %></li>
   </ul>
 </div>

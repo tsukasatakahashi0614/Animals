@@ -1,0 +1,26 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+<div class="card">
+  <span>
+    <%= link_to  user_path(visitor) do %>
+  </span>
+  <strong><%= visitor.name %>さんが</strong>
+  <% end %>
+
+  <% case notification.action %>
+  <% when "follow" %>
+  <p>あなたをフォローしました</p>
+  <% when "favorite" %>
+  <p><%= link_to "あなたの投稿", notification.post %>にいいねしました</p>
+  <% when "comment" %>
+    <% if notification.post.user_id == visited.id %>
+      <p><%= link_to "あなたの投稿", notification.post %>にコメントしました</p>
+    <% else %>
+      <%= link_to post_path(notification.post) do %>
+       <strong><%= notification.post.user.name + "さんの投稿" %>にコメントしました</strong>
+      <% end %>
+    <% end %>
+  <% end %>
+
+
+</div>

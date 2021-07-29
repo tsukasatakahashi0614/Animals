@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   root to: 'homes#top'
-
+  
   resources :users, only: %i[show edit update] do
+    resources :notifications, only: :index
     resource :relationships, only: %i[create destroy]
     get 'favorites'
     get 'followings' => 'relationships#followings', as: 'followings'

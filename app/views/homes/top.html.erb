@@ -1,27 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 offset-3 text-center mt-5">
-      <div class="card">
-        <div class="card-item align-center">
-          <%= link_to "ログイン", new_user_session_path %>
-        </div>
-        <div class="card-item">
-          <%= link_to "新規登録", new_user_registration_path %>
-        </div>
-      </div>
+    <div class="col-md-12 text-center mt-5">
       <div class="card p-2 mt-2">
-        <div class"card-header">
-          <h3>Animals</h3>
+        <div class"card-body">
+          <%= image_tag asset_path("593227_m.jpg"), class: "card-img" %>
+          <div class="card-img-overlay">
+            <div class="card-text">
+              <p class="text-break">
+                <h3>Animals</h3>
+                Animalsは動物専用のSNSです。<br>
+                猫や犬など、ポピュラーな動物から爬虫類など、<br>
+                すべての生き物の写真を皆さんで共有しましょう。
+              </p>
+            </div>
+            <dic class="card-item">
+              <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
+              <%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary" %>
+            </dic>
+          </div>
         </div>
-        <div class="card-text">
-          <p class="text-break">
-            Animalsは動物専用のSNSです。<br>
-            猫や犬など、ポピュラーな動物から爬虫類など、<br>
-            すべての生き物の写真を皆さんで共有しましょう。
-          </p>
-        </div>
-        <div class=""
-      </div>
     </div>
   </div>
 </div>

@@ -2,12 +2,12 @@
   <% post_comment_user = post_comment.user %>
   <div class="card">
     <div>
-      <td><%= attachment_image_tag(@post.user, :profile_image, size: "40x40", fallback: "no_image.jpg", class: "rounded-circle") %></td>
+      <td><%= attachment_image_tag(post_comment.user, :profile_image, size: "40x40", fallback: "no_image.jpg", class: "rounded-circle") %></td>
       <td><strong><%= link_to post_comment_user.name, user_path(post_comment.user), class: "text-dark text-decoration-none" %></strong></td>
     </div>
     <div class="text-break"><%= post_comment.comment %></div>
       <% if post_comment_user == current_user %>
-    <td class="w-10"><%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, class: "text-muted", remote: true %></td>
-  </div>
+        <td class="w-10"><%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete, class: "text-muted", remote: true %></td>
       <% end %>
+  </div>
 <% end %>

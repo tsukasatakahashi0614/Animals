@@ -6,7 +6,10 @@ class PostCommentsController < ApplicationController
     @post_comment = PostComment.new(post_comment_params)
     @post_comment.user_id = current_user.id
     @post_comment.post_id = @post.id
+    @comment = @post_comment.comment
     @post_comment.save
+
+
   end
 
   def destroy
