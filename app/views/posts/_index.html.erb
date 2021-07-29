@@ -11,7 +11,7 @@
         <% end %>
       </strong>
     </div>
-    <div class="article_img"><%= attachment_image_tag(post, :image, format: "jpeg", class: "rounded img-fluid") %></div>
+    <div><%= attachment_image_tag(post, :image, format: "jpeg", class: "rounded img-fluid") %></div>
     <div class="d-flex">
       <div class="ml-2" id="post_<%= post.id %>"><%= render "favorites/favorite-btn", post: post %></div>
       <div class="ml-2"><%= link_to post.post_comments.count, post_path(post), class: "far fa-comment text-decoration-none" %></div>
