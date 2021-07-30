@@ -82,7 +82,7 @@ Rails.application.configure do
   #mailer setting
   config.action_mailer.perform_caching = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: "http://35.75.199.157/" }
+  config.action_mailer.default_url_options = { host: "ip-172-31-45-69.ap-northeast-1.compute.internal" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :enable_starttls_auto => true,
