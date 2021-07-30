@@ -1,22 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-center mt-5">
-      <div class="card p-2 mt-2">
+    <div class="col-lg-12 text-center mt-5">
+      <div class="card p-2 mt-2 w-100">
         <div class"card-body">
           <%= image_tag asset_path("593227_m.jpg"), class: "card-img" %>
           <div class="card-img-overlay">
             <div class="card-text">
               <p class="text-break">
-                <h3>Animals</h3>
+                <h3 class="text-light">Animals</h3>
+
+                <p class="text-light">
                 Animalsは動物専用のSNSです。<br>
                 猫や犬など、ポピュラーな動物から爬虫類など、<br>
                 すべての生き物の写真を皆さんで共有しましょう。
+                </p>
+
               </p>
             </div>
-            <dic class="card-item">
+            <div class="card-item">
               <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
               <%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary" %>
-            </dic>
+            </div>
           </div>
         </div>
     </div>
