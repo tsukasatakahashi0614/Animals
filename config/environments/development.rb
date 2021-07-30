@@ -17,7 +17,7 @@ Rails.application.configure do
     :domain => 'smtp.gmail.com',
     :user_name => ENV["Gmail"],
     :password => ENV["GmailPW"],
-    :authentication => 'login'
+    authentication: 'plain',
   }
   
   
