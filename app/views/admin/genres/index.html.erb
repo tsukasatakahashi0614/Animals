@@ -7,7 +7,7 @@
     <div class="row form-group">
       <%= form_with model:[:admin,@genre],local: true do |f| %>
         <tr>
-          <th>ジャンル名</th>
+          <th>タグ名</th>
           <th><%= f.text_field :genre_name %></th>
           <th><%= f.submit '新規登録', class: 'btn btn-success' %></th>
         </tr>
@@ -16,7 +16,7 @@
   </thead>
 
   <tbody>
-    <h2 class="mb-3">ジャンル</h2>
+    <h2 class="mb-3">タグ</h2>
     <table class="table table-striped">
       <% @genres.each do |genre| %>
       <tr>
